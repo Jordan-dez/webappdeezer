@@ -1,0 +1,229 @@
+/* $primary-color : #17a2b8;
+$dark-color : #343a40;
+$light-color : #f4f4f4;
+$danger-color : #dc3545;
+$success-color : #28a745; */
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+}
+.textupercase{
+  text-transform: uppercase;
+  text-align: center;
+}
+body{
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+}
+nav a{
+  text-decoration: none;
+  color:#fff;
+}
+ul{
+  list-style: none;
+}
+/*navBar*/
+.navbar{
+  display: flex;
+  flex-wrap: wrap;
+  background: #17a2b8;
+  align-items: center;
+  padding: 0.7rem 2rem;
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  top:0;
+  opacity: 0.9;
+}
+.navbar h1{
+  margin-right: 4.5rem;
+}
+
+.navbar ul{
+  display: flex;
+}
+.navbar ul li a{
+  padding: 0  1.45rem;
+  text-transform: capitalize;
+}
+.navbar ul li a:hover{
+    color:#343a40;
+  }
+main{
+  margin: 6rem 0 0 0;
+  padding: 0 20px  0 20px ;
+}
+.searchform{
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
+  min-width: 450px;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.searchform input{
+  width: 50%;
+   padding-left: 48px;
+}
+.searchform label {
+  position: absolute;
+  color: #333;
+  left: 51px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all 0.3s ease-in;
+}
+/* .label--up {
+/*     top: -1.2rem;
+    padding-left: 0.5rem;
+    color: #f1f1f1; 
+      top: -15px;
+      padding-left: 5px;
+      color: #f1f1f1;
+
+  
+} */
+.focuslabel,
+.searchform.active-input label {
+    top: -15px;
+    padding-left: 5px;
+    color: #f1f1f1;
+}
+
+
+/***bouton***/
+.btn {
+  display: block;
+  /* margin: 150px auto 0; */
+  font-weight: lighter;
+  color: #333;
+  padding: 25px 80px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+
+/*   box-shadow: 0 6px #efa424; */
+}
+/* .btn:hover {
+  box-shadow: 0 4px #efa424;
+  top: 2px;
+} */
+.btn-album{
+  background-color: #28a745;
+  width: 20px;
+  height: 10px;
+  margin: 10px;
+}
+.btn:active {
+  box-shadow: 0 0 #efa424;
+  top: 6px;
+}
+/* .btn:hover {
+  transform: scale(1.1, 1.1);
+} */
+
+.btn--submit{
+  background-color: #28a745;
+  flex-basis: 100px;
+  padding: 0 30px;
+  font-size: 20px;
+  border-radius: 0.5rem;
+  height: 45px;
+  line-height: 42px;
+}
+/*****design des cards********/
+.allcard{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    /* height: 100vh; */
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background: rgb(218,218,218);
+}
+.cards {
+  background: #f1f1f1;
+  width: 22rem;
+  height: 37rem;
+  min-height:  33rem;
+  max-height: 44rem;
+  flex-shrink: 0;
+  border-radius: .5rem;
+  margin: 25px;
+  box-shadow: 0px 10px 25px rgba(0,0,0,0.4);
+  text-align: center;
+}
+.artistImg {
+  height: auto;
+  width: 100%;
+  background-position: top;
+  position: relative;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  border-top-right-radius: .5rem;
+  border-top-left-radius: .5rem;
+}
+
+.titreCarte {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  
+}
+
+.dureeson {
+  font-weight: 100;
+  font-size: 0.9rem;
+  text-align: center;
+
+}
+.like {
+  border-radius: 50%;
+  width: 4.375rem;
+  height: 4.375rem;
+  margin-right: 1.25rem;
+  background: rgba(116,210,247,0.9);
+  float: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon img {
+  width: 20px;
+  margin-right: 5px;
+  margin-top: 5px;
+}
+
+/*********page titre*************/
+
+.displayflex{
+  display: flex;
+/*   flex-wrap: wrap;
+  justify-content: space-around; */
+}
+.imgalbum{
+  width: 250px;
+  /* margin-right: 2rem; */
+}
+.infossong{
+  margin: 1.8rem 0;
+}
+.artistInfos{
+  margin: 0 auto;
+}
+.artistInfos--img{
+  width: 450px;
+}
+.textalign{
+  text-align: center;
+}

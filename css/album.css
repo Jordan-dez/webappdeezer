@@ -1,0 +1,35 @@
+section{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+section h3{
+  width: 100%;
+  margin-bottom: 1.25rem;
+}
+
+section ul{
+  /* max-width: 60%; */
+  width: 700px;
+  height: auto;
+  border: 1px solid black;
+  border-radius: 25px;
+}
+section ul li {
+  border-top: 1px solid black;
+  padding-left: 15px;
+}
+section ul li:first-child{
+  border-top: none;
+  border-top-right-radius: 25px;
+  border-top-left-radius:25px ;
+  background-color: #C0C0C0;
+}
+section ul li:last-child{
+  border-bottom: none;
+}
+section ul li a{
+  text-decoration: none;
+  color: black;
+}
+
