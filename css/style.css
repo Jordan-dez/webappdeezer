@@ -100,7 +100,6 @@ main{
 /***bouton***/
 .btn {
   display: block;
-  /* margin: 150px auto 0; */
   font-weight: lighter;
   color: #333;
   padding: 25px 80px;
@@ -108,19 +107,48 @@ main{
   border: none;
   cursor: pointer;
   position: relative;
-
-/*   box-shadow: 0 6px #efa424; */
 }
 /* .btn:hover {
   box-shadow: 0 4px #efa424;
   top: 2px;
 } */
+/****boutons des différents boutons qui mènent vers l'extrait,l'album complet et l'affiche de l'artiste*****/
 .btn-album{
-  background-color: #28a745;
-  width: 20px;
+  width: 10px;
+  height: 5px;
+  font-size: 4px;
+  border: 2px solid crimson;
+  border-radius: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 5px;
+  cursor: pointer;
+  position: relative;
+  z-index: 50;
+  transition: background 1s ease;
+}
+/*.btn-extrait{
+  background-color: red;
+  width: 5px;
+  height: 5px;
+  display: block;
+   width: 20px;
   height: 10px;
   margin: 10px;
-}
+  position: absolute;
+  margin-left: 10px; 
+}*/
+/*.btn-ficheartist{
+  background-color: blue;
+   width: 5px;
+  height: 5px; 
+  display: block;
+ height: 10px;
+  margin: 10px;
+  position: absolute;
+   left: 12px; 
+}/*
 .btn:active {
   box-shadow: 0 0 #efa424;
   top: 6px;

@@ -75,8 +75,8 @@ function recherche(){
       consultAlbumLink.setAttribute("href",`../html/pageAlbum.html?id=${result.album.id}`);
 
 
-      aExtrait.setAttribute("class","btn btn-album");
-      consultArtistProfilLink.setAttribute("class","btn btn-album");
+      aExtrait.setAttribute("class","btn btn-extrait");
+      consultArtistProfilLink.setAttribute("class","btn btn-ficheartist");
       consultAlbumLink.setAttribute("class","btn btn-album");
 
       aExtrait.innerHTML="écouter l'extrait";
