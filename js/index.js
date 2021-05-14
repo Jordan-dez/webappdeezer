@@ -52,6 +52,7 @@ function recherche(){
   fetch(url)
   .then(response=>response.json())
   .then(allResults=>{
+    console.log(allResults);
     allResults.data.forEach((result)=>{
 
       /**création des différents composants html pour construire les cartes*/
@@ -88,8 +89,6 @@ function recherche(){
       pboutons.append(consultAlbumLink);
 
       //ajouts des valeurs aux différents composants html des cartes créées
-
-      previewAudio.src= result.preview;
       imgCoverAlbum.src=result.album.cover_big;
       cardTitle.innerHTML= result.title_short;
       artistNameAndAlbum.innerHTML = result.artist.name+" /  "+result.album.title;
@@ -105,7 +104,7 @@ function recherche(){
       card.appendChild(duringOfsong);
       card.appendChild(plikeIcon);
       /* card.appendChild(aExtrait);  */
-      card.appendChild(pboutons);
+      /* card.appendChild(pboutons); */
       loading.style.display="none";
       allcards.appendChild(card);
       
@@ -119,13 +118,29 @@ function recherche(){
       duringOfsong.setAttribute("class","dureeson");
       heartIcon.setAttribute("class","far fa-heart likeIcon");
       plikeIcon.setAttribute("class","like");
+      plikeIcon.setAttribute("id",`${result.id}`);
       pboutons.setAttribute("class","displayflex");
           
 
       console.log(selectedoption.value);
 
+
     }) 
-    console.log(document.querySelectorAll('p.like').length)
+    console.log("nombre de p"+document.querySelectorAll('p.like').length)
+              //ajout d'un evènement d'écoute sur chaque balise p qui contient l'icon du coeur
+              document.querySelectorAll('p.like').forEach(item => {
+                item.addEventListener('click', event => { 
+                  const idLikedSond = item.getAttribute('id');
+                  updateLocalStogeWithLikedSong(idLikedSond);
+                  item.querySelector('i').style.backgroundColor="red";
+                  console.log(item.querySelector('i'));
+                    
+                    
+                })
+                /* item.style.backgroundColor="red"; */
+              })
+
+
   })
   .catch((err)=>{
     console.log(err);
@@ -136,14 +151,28 @@ function recherche(){
 
 
 
-console.log(document.querySelectorAll('p.like'));
-document.querySelectorAll('p.like').forEach(item => {
-  item.addEventListener('click', event => {
-    alert("bonjour");
-    console.log("ici..");
+/* console.log(document.querySelector('like'));
+
+function likedFonction(pliked){
+  pliked.forEach(item=>{
+    item.addEventListener('click', event=>{
+      alert("bonjour");
+      console.log("ici..");
+    })
   })
-  /* item.style.backgroundColor="red"; */
-})
+
+} */
+const updateLocalStogeWithLikedSong = idSong =>{
+  const storedAllIds = window.localStorage.getItem("liked_user_list");
+  let storedArr = [];
+  if(storedAllIds){
+    storedArr = JSON.parse(storedAllIds);
+  }
+  storedArr.push(idSong);
+  window.localStorage.setItem("liked_user_list",JSON.stringify(storedArr));
+  alert("votre musique sélectionnée a été ajoutée aux favoris avec succès");
+
+}
 
 function message(){
     setTimeout(recherche, 200); 
