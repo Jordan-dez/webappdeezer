@@ -1,0 +1,49 @@
+    h2 .fas {
+        color: tomato;
+    }
+    
+    #favoris-list li {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .containerfavoristlist {
+        max-width: 700px;
+        margin: 45px auto;
+    }
+    
+    .infossong {
+        display: flex;
+        max-width: 400px;
+        min-width: 100px;
+    }
+    
+    .infossong img {
+        max-width: 80px;
+        height: auto;
+        margin-right: 30px;
+        border-radius: 50%;
+    }
+    
+    .song {
+        /*  text-align: center; */
+        transform: translate(10%, 20%);
+        font-size: 0.9rem;
+    }
+    
+    .infosEtActions {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 2px solid black;
+    }
+    
+    p i {
+        font-size: 20px;
+    }
+    
+    .actions {
+        margin-top: 45px;
+        display: flex;
+        justify-content: space-between;
+        width: 45px;
+    }
