@@ -4,7 +4,6 @@ const urlSearchParams = new URLSearchParams(searchParams);
 console.log(urlSearchParams);
 const id = urlSearchParams.get("id");
 const radioicon = document.getElementById('playersection');
-console.log(radioicon);
 
 
 //ma balise p dans laquelle se trouve le lien du son vers deezer.com et le bouton ajout aux favoris 
@@ -12,11 +11,9 @@ const linka = document.getElementById('mesliens');
 
 
 const url = `https://api.deezer.com/track/${id}`;
-console.log(url);
 fetch(url)
     .then((response) => response.json())
     .then((song) => {
-        console.log(song);
         displaySong(song);
 
     })
@@ -81,11 +78,9 @@ function displaySong(song) {
     //image cover album et ses attributs
     albumcover.src = `${song.album.cover_medium}`;
     albumcover.alt = `${song.album.cover}`;
-
-    /*  console.log(albumcover); */
     figureimageArtiste.appendChild(imageArtist);
     figureimgalbumcover.appendChild(albumcover);
-    console.log(figureimageArtiste);
+    //animation
     listeningAudio.addEventListener("play", (e) => {
         radioicon.style.display = "block";
     })

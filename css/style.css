@@ -144,12 +144,13 @@ main {
 }
 
 .cards {
+    display: inline-block;
     background: #f1f1f1;
     width: 23rem;
-    height: 37rem;
-    min-height: 33rem;
-    max-height: 44rem;
-    flex-shrink: 0;
+    /* height: 37rem; */
+    min-height: 39rem;
+    /* max-height: 44rem; */
+    /* flex-shrink: 0; */
     border-radius: .5rem;
     margin: 25px;
     box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.4);

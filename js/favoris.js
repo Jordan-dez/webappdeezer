@@ -3,13 +3,10 @@ const allIdsSongInLocalStorage = localStorage.getItem("liked_user_list");
 /* console.log(allIdsSongInLocalStorage); */
 if (allIdsSongInLocalStorage) {
     const localStageItemsArray = JSON.parse(allIdsSongInLocalStorage);
-    console.log("nombre " + localStageItemsArray.length);
     for (let i = 0; i < localStageItemsArray.length; i++) {
-        console.log(localStageItemsArray[i]);
         fetch(`https://api.deezer.com/track/${localStageItemsArray[i]}`)
             .then(response => response.json())
             .then((result) => {
-                console.log(result);
                 displayCard(result);
             })
     }
@@ -38,6 +35,8 @@ function displayCard(array) {
     iicondelete.setAttribute("class", "fas fa-trash");
     iiconplay.setAttribute("class", "far fa-play-circle");
     songdiv.setAttribute("class", "song");
+    picondelete.setAttribute("id", `${array.id}`);
+    picondelete.setAttribute("class", "deleted");
 
     //affectation des valeurs aux éléments html
 
@@ -65,4 +64,32 @@ function displayCard(array) {
     ul.appendChild(li);
 
 
+    const alldeletedp = document.querySelectorAll('.deleted');
+    alldeletedp.forEach(function(element, index) {
+        element.addEventListener('click', deletefavoritesong, false);
+    })
+}
+
+
+
+
+//fonction de suppression
+function deletefavoritesong(param) {
+    console.log(param.currentTarget.id);
+    const storedAllIds = window.localStorage.getItem("liked_user_list");
+    let storedArr = [];
+    if (storedAllIds) {
+        storedArr = JSON.parse(storedAllIds);
+    }
+
+    for (var i = 0; i < storedArr.length; i++) {
+        if (storedArr[i] === param.currentTarget.id) {
+            storedArr.splice(i, 1);
+        }
+    }
+    window.localStorage.setItem("liked_user_list", JSON.stringify(storedArr));
+    alert("votre musique sélectionnée a été suppprimé aux favoris avec succès");
+
+    return storedArr;
+    alert("votre musique sélectionnée a été ajoutée aux favoris avec succès");
 }

@@ -1,4 +1,5 @@
 const form = document.querySelector('form');
+
 const loading = document.querySelector('.blockloader');
 const searchformInput = document.querySelector('.searchform input[type=text]');
 const selectedoption = document.getElementById('order-select');
@@ -93,7 +94,8 @@ function recherche() {
 
                     imgCoverAlbum.src = result.album.cover_big;
                     cardTitle.innerHTML = result.title_short;
-                    artistNameAndAlbum.innerHTML = result.artist.name + " /  " + result.album.title;
+                    let minalbumtitle = result.album.title.substring(0, 20) + "...";
+                    artistNameAndAlbum.innerHTML = result.artist.name + " /  " + minalbumtitle;
                     let temp = Math.floor(result.duration / 60);
                     duringOfsong.innerHTML = "Durée : ";
                     duringOfsong.innerHTML += (temp > 9) ? temp + ":" : "0" + temp + ":";
@@ -159,9 +161,15 @@ const updateLocalStogeWithLikedSong = idSong => {
         if (storedAllIds) {
             storedArr = JSON.parse(storedAllIds);
         }
-        storedArr.push(idSong);
-        window.localStorage.setItem("liked_user_list", JSON.stringify(storedArr));
-        alert("votre musique sélectionnée a été ajoutée aux favoris avec succès");
+        console.log();
+        if (!storedArr.includes(idSong)) {
+            storedArr.push(idSong);
+            window.localStorage.setItem("liked_user_list", JSON.stringify(storedArr));
+            alert("votre musique sélectionnée a été ajoutée aux favoris avec succès");
+
+        } else {
+            alert("cette chanson existe déjà dans vos favoris");
+        }
 
     }
     //fonction permettant de retarder le chargement de la page en jouant l'animation loading
